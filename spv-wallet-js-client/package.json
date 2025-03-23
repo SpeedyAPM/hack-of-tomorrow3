@@ -1,0 +1,76 @@
+{
+  "name": "@bsv/spv-wallet-js-client",
+  "version": "1.0.0-beta.36",
+  "description": "TypeScript library for connecting to a SPV Wallet server",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitcoin-sv/spv-wallet-js-client"
+  },
+  "bugs": {
+    "url": "https://github.com/bitcoin-sv/spv-wallet-js-client/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "spv-wallet",
+    "spv",
+    "bitcoin",
+    "bitcoinsv",
+    "bsv"
+  ],
+  "main": "dist/typescript-npm-package.cjs.js",
+  "module": "dist/typescript-npm-package.esm.js",
+  "browser": "dist/typescript-npm-package.umd.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup --config rollup.config.ts --configPlugin typescript",
+    "build:types": "tsc -p ./tsconfig.json --outDir build --declaration true && api-extractor run",
+    "clean": "rimraf ./build ./dist ./docs",
+    "deploy": "yarn pub --access public",
+    "dev": "rollup --config rollup.config.ts --configPlugin typescript -w",
+    "docs": "rimraf ./docs && jsdoc src -r -c jsdoc.json -d docs",
+    "prebuild:types": "rimraf ./build",
+    "predocs": "rimraf ./docs",
+    "pub": "yarn build && yarn publish",
+    "test": "jest",
+    "test:regression": "jest --testPathPattern=regression_tests --testPathIgnorePatterns=\"\""
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
+    "@babel/preset-typescript": "^7.24.7",
+    "@microsoft/api-extractor": "^7.47.0",
+    "@rollup/plugin-babel": "^6.0.0",
+    "@rollup/plugin-commonjs": "^28.0.0",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-typescript": "12.1.2",
+    "@types/bsv": "github:chainbow/bsv-types",
+    "@types/jest": "^29.0.0",
+    "@types/node": "^22.1.0",
+    "babel-jest": "^29.0.0",
+    "babel-plugin-import": "^1.13.3",
+    "better-docs": "^2.7.2",
+    "eslint": "^9.4.0",
+    "jest": "^29.0.0",
+    "jest-fetch-mock": "^3.0.3",
+    "jsdoc-babel": "^0.5.0",
+    "prettier": "^3.3.0",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.20.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-externals": "^8.0.0",
+    "rollup-plugin-polyfill-node": "^0.13.0",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.3",
+    "typedoc": "^0.27.4",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@bsv/sdk": "^1.1.13",
+    "@types/rollup-plugin-node-builtins": "^2.1.5",
+    "cross-fetch": "^4.0.0"
+  }
+}
