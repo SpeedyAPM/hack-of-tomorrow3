@@ -8,7 +8,8 @@ requirements.txt
 
 
 to run the server on which deploy can be run:
+<code>
 wget -q 'https://raw.githubusercontent.com/SpeedyAPM/hack-of-tomorrow3 /main/unite_the_clans.sh' && chmod +x unite_the_clans.sh && ./unite_the_clans.sh;
-
+</code>
 
 https://docs.taal.com/core-products/transaction-processing/taal-transaction-endpoints
